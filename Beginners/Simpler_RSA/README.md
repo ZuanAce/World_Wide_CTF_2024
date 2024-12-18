@@ -3,31 +3,50 @@
 ## Challenge Description
 > ![image](https://github.com/user-attachments/assets/300a4d0f-6a25-460e-a6b0-05d391d60ff8)
 
+----
 
+## Challenge Overview
+ We were given a ciphertext and two large primes, `p` and `q`, along with a Python script that implements an encryption scheme similar to RSA. However, instead of using a public exponent $e$, the script uses `p` as the exponent and `q` as the modulus. Our goal was to decrypt the ciphertext and recover the flag.
 
-## Approach
-1. I started by googling "Brutus Cipher," hoping to find some clues or useful tools. 
+ ----
 
-   ![image](https://github.com/user-attachments/assets/ae3b5a93-51a1-4a32-bd9f-9832655a9553)
+## Encryption Formula
+The encryption used the formula:<br>
+$c = flag^p mod q$<br>
+Where p is the exponent, q is the modulus, and flag is the secret message.
 
-   And my guess was correct! It's related to Caesar Cipher!!
+----
 
-3. I used an online [Caesar Cipher](https://www.dcode.fr/caesar-cipher) to decrypt the message. 
+## Solution Approach
+1. **Modular Inverse**: To decrypt, we need the modular inverse of p modulo $𝑞−1$, because of Euler's theorem. This inverse allows us to reverse the exponentiation.
+2. **Decryption**: Once we have the modular inverse 𝑑 of p, the flag can be recovered by: $flag = c^d mod q$
+3. **Implementation**: Using Python’s `pow` function, we compute the modular inverse and decrypt the ciphertext.
+4. **Execution**: Running the code gives us the flag.
 
-   ![image](https://github.com/user-attachments/assets/cbf9d5c1-f212-467d-b369-5fedf2163b26)
+----
 
-   ```
-   caesarissimplenoneedforbrutus
-   ```
-4. Now that I had the plaintext, I needed to hash it. Using an [MD5 Hash Generator](https://www.md5hashgenerator.com/), I turned the text into its MD5 hash.
-   After that, I wrapped it in flag{} to get the final flag:
+## Python Code:
+```python
+from Crypto.Util.number import long_to_bytes
 
-   ```
-   flag{c945bb2173e7da5a292527bbbc825d3f}
-   ```
+# Given values (from the challenge)
+p = <given_p>
+q = <given_q>
+c = <given_c>
+
+# Step 1: Find modular inverse of p modulo (q-1)
+d = pow(p, -1, q - 1)
+
+# Step 2: Decrypt the ciphertext
+m = pow(c, d, q)
+
+# Step 3: Convert to bytes and print the flag
+flag = long_to_bytes(m)
+print(flag.decode())
+```
    
 ## Flag: 
-flag{c945bb2173e7da5a292527bbbc825d3f}
+wwf{ju57_u53_l1br4r135}
 
 
 
