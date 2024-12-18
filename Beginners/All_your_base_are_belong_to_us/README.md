@@ -3,32 +3,28 @@
 ## Challenge Description
 > ![image](https://github.com/user-attachments/assets/940c155c-125d-4b4a-aa22-917c8df6907f)
 
+----
 
+## Challenge Overview
+In this challenge, we were provided with a string that appeared to be encoded in a custom base, and our task was to decode it to reveal a flag. The string was:
 
-## Approach
-1. I started by googling "Brutus Cipher," hoping to find some clues or useful tools. 
+`MkpIbmdFcWs4MzVjR3BHRXFVVnZtZWJUQWtSTlNNamE1dGZYQTdwR25ac203SnJQV2FyTUdHQnA3Uk1XZDNZVFlTNTJjemVya1BCN0dBY2NBNkN4U1VBS29TalVBOU1tR1EyYUF0UVlHZTFYOXp1TThWS2o1OHdKRFJaVXhzTGRaZUpaTGV6NUFWc2JHdm5CbTdjV28yNTRyWGpzQURYdEhkSmJmWmtGREVEQWZWeEhFeDNYanNNODZMZVo2cnM2NExGbU5QeG1mUXBqQ3BoY3pCczlRa3kySnFZb1JzSnFtUnk0cW02WFgyOU50N1g2Vg`
 
-   ![image](https://github.com/user-attachments/assets/ae3b5a93-51a1-4a32-bd9f-9832655a9553)
+ ----
 
-   And my guess was correct! It's related to Caesar Cipher!!
+## Solution Approach
+1. **Use CyberChef:** I pasted the string into CyberChef and used the “Magic” button to try out different decodings. After several attempts, I eventually got a string containing Chinese characters: `𔕷𠅦𖥣桢顲桨鑦敤𓅥𓉮鵟𔐴鐳ꌴ鑬鵴鐳𐘴𔕳𓀳鑳𔔴敧栴鬲ᕽ`
 
-3. I used an online [Caesar Cipher](https://www.dcode.fr/caesar-cipher) to decrypt the message. 
+   ![image](https://github.com/user-attachments/assets/e92d980c-b066-41a6-a2a4-cc7cb3cc21d1)
 
-   ![image](https://github.com/user-attachments/assets/cbf9d5c1-f212-467d-b369-5fedf2163b26)
+2. **Use Base 65536 Decoding:** In the challenge description, a hint was given indicating the use of base $2^16$. I found an (online tool)[https://www.better-converter.com/Encoders-Decoders/Base65536-Decode] for decoding Base 65536 and input the Chinese characters. When decoded, the result was the flag:
 
-   ```
-   caesarissimplenoneedforbrutus
-   ```
-4. Now that I had the plaintext, I needed to hash it. Using an [MD5 Hash Generator](https://www.md5hashgenerator.com/), I turned the text into its MD5 hash.
-   After that, I wrapped it in flag{} to get the final flag:
+   ![image](https://github.com/user-attachments/assets/96b10555-1978-4ee3-bd81-d188b985f406)
 
-   ```
-   flag{c945bb2173e7da5a292527bbbc825d3f}
-   ```
+----
    
 ## Flag: 
-flag{c945bb2173e7da5a292527bbbc825d3f}
-
+wwf{cyb3rch3f_d0esnt_h4v3_4ll_th3_4nsw3rs_4wg0432f}
 
 
    
