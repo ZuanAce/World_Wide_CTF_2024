@@ -1,7 +1,7 @@
-# Simpler RSA ✅
+# All your base are belong to us ✅
 
 ## Challenge Description
-> ![image](https://github.com/user-attachments/assets/300a4d0f-6a25-460e-a6b0-05d391d60ff8)
+> ![image](https://github.com/user-attachments/assets/940c155c-125d-4b4a-aa22-917c8df6907f)
 
 
 
