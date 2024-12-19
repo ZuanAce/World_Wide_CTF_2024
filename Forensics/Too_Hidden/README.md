@@ -15,9 +15,9 @@ In this challenge, we were provided with a string that appeared to be encoded in
 ## Solution Approach
 1. **Use CyberChef:** I pasted the string into CyberChef and used the “Magic” button to try out different decodings. After several attempts, I eventually got a string containing Chinese characters: `𔕷𠅦𖥣桢顲桨鑦敤𓅥𓉮鵟𔐴鐳ꌴ鑬鵴鐳𐘴𔕳𓀳鑳𔔴敧栴鬲ᕽ`
 
-   ![image](https://github.com/user-attachments/assets/e92d980c-b066-41a6-a2a4-cc7cb3cc21d1)
+   ![image](https://github.com/user-attachments/assets/43558449-f6cd-4883-afb3-c2e75cdd5bf3)
 
-2. **Use Base 65536 Decoding:** In the challenge description, a hint was given indicating the use of base $2^16$. I found an (online tool)[https://www.better-converter.com/Encoders-Decoders/Base65536-Decode] for decoding Base 65536 and input the Chinese characters. When decoded, the result was the flag:
+3. **Use Base 65536 Decoding:** In the challenge description, a hint was given indicating the use of base $2^16$. I found an (online tool)[https://www.better-converter.com/Encoders-Decoders/Base65536-Decode] for decoding Base 65536 and input the Chinese characters. When decoded, the result was the flag:
 
    ![image](https://github.com/user-attachments/assets/96b10555-1978-4ee3-bd81-d188b985f406)
 
